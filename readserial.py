@@ -3,7 +3,7 @@ import csv
 import threading
 from datetime import datetime
 
-#define a porta (MEGA: COM4, UNO: COM6) e o baud rate (Monitor Serial)
+#define a porta (MEGA: COM4, UNO: COM6, definido no Arduino IDE) e o baud rate (Monitor Serial)
 PORT = 'COM6'
 BAUD = 9600
 FILENAME = f"sensor_log_{datetime.now().strftime('%H%M%S')}.csv"
