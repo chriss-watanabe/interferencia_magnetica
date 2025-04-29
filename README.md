@@ -8,15 +8,13 @@ O projeto é de autoria de Allan Kuwabara, Christian Watanabe, Cauet Scariot e J
 
 ---
 
-## Estrutura do repositório
+## Descrição dos arquivos
 
-/arduino/ magnetometro_arduino
+magnetometro.ino: Código para Arduino IDE (C++) de leitura dos sensores QMC5883L e MPU6050 e compilação dos dados através da porta serial;
 
-Código para Arduino IDE (C++) de leitura dos sensores QMC5883L e MPU6050 e compilação dos dados através da porta serial.
+log_dados.py: Código em Python para leitura dos dados da porta serial e posterior gravação em um arquivo CSV;
 
-/python/ read_serial.py
-
-Código em Python para leitura dos dados da porta serial e posterior gravação em um arquivo CSV.
+sensor_log_112813.csv: Arquivo de exemplo de output do código.
 
 ---
 
@@ -34,7 +32,6 @@ Código em Python para leitura dos dados da porta serial e posterior gravação 
 ## Software e bibliotecas utilizadas
 
 - **Arduino IDE**
-- Bibliotecas do Arduino:
   - [Wire.h](https://www.arduino.cc/en/Reference/Wire) (standard)
   - [QMC5883LCompass.h](https://github.com/mprograms/QMC5883LCompass)
   - [MPU6050.h](https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050)
@@ -61,8 +58,8 @@ Conecte o Arduino ao computador;
 
 Edite as variáveis PORT e BAUD do arquivo read_serial.py de acordo com as especificações do seu computador;
 
-Rode o arquivo python no Terminal (ou em outra IDE preferida):
-python serial_logger.py
+Execute o código python no Terminal (ou em outra IDE preferida):
+python log_dados.py
 
 Os dados serão salvos após o fim da execução do código.
 
@@ -78,6 +75,8 @@ Pressione CTRL+C no Terminal para interromper a execução do código Python e s
 Certifique-se que a porta serial e o Baud rate estão definidos conforme a configuração atual do Arduino. É possível verificar a porta utilizada pela placa através do próprio Arduino IDE.
 
 No início do programa, duas mensagens de erro serão impressas: "Formato inválido: Sensor QMC5883L inicializado!" e "Formato inválido: Sensor MPU6050 detectado!", que inevitavelmente fogem da formatação dos dados esperados para a porta serial, mas não comprometem o funcionamento normal da aplicação.
+
+O arquivo CSV será nomeado como "sensor_log_[timestamp].csv", com o timestamp marcado em 'HHMMSS'. O arquivo só irá ser disponibilizado após o código ser encerrado.
 
 Referências
 
